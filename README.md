@@ -2,6 +2,26 @@
 
 A modern, responsive web application built with Flask and Vanilla JavaScript that provides personalized greetings.
 
+## Architecture
+
+```mermaid
+graph LR
+    User((User))
+    Browser["Browser (index.html/style.css)"]
+    JS["Vanilla JS (script.js)"]
+    Flask["Flask API (app.py)"]
+    Logic["Greeting Logic"]
+
+    User -- Enters Name --> Browser
+    Browser -- Triggers Event --> JS
+    JS -- POST /greet --> Flask
+    Flask -- Processes --> Logic
+    Logic -- Returns Greeting --> Flask
+    Flask -- JSON Response --> JS
+    JS -- Dynamic Update --> Browser
+    Browser -- Displays Hello Name --> User
+```
+
 ## Features
 - **Flask Backend**: Robust Python server handling API requests.
 - **Premium Frontend**: Sleek, glassmorphic design with micro-animations.
